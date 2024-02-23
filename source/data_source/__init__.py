@@ -1,11 +1,13 @@
 import json
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import Dict
+from typing import Dict, List
+
+from .common.product import Product
 
 
 class DataSourceType(Enum):
-    DEFAULT = "default"
+    SHEIN = "shein"
 
 
 class DataSourceConfig:
@@ -23,9 +25,20 @@ class DataSourceConfig:
 
 
 class DataSource(ABC):
-    @abstractmethod
     def __init__(self, base_url: str) -> None:
         self.base_url = base_url
 
     def _set_url(self, params: Dict) -> None:
         self.url = self.base_url.format(**params)
+
+    @abstractmethod
+    def _fetch(self) -> object:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def _parse(self) -> Product:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def get_data(self) -> List[Product]:
+        raise NotImplementedError()
