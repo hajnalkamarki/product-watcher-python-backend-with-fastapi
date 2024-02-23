@@ -1,13 +1,9 @@
 import json
 from abc import ABC, abstractmethod
-from enum import Enum
 from typing import Dict, List
 
+from .common.data_source_types import DataSourceType
 from .common.product import Product
-
-
-class DataSourceType(Enum):
-    SHEIN = "shein"
 
 
 class DataSourceConfig:
