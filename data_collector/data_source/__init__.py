@@ -2,8 +2,9 @@ import json
 from abc import ABC, abstractmethod
 from typing import Dict, List
 
+from data_collector.data_source.database.models.product import Product
+
 from .common.data_source_types import DataSourceType
-from .common.product import Product
 
 
 class DataSourceConfig:

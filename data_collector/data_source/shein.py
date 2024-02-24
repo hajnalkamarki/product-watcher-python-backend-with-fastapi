@@ -1,7 +1,8 @@
 from typing import List
 
+from data_collector.data_source.database.models import Product
+
 from . import DataSource
-from .common.product import Product
 
 
 class SheinDataSource(DataSource):
