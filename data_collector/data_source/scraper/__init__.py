@@ -4,6 +4,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Dict, List
 
+import requests
+
 from ..common.data_source_types import DataSourceType
 
 CONFIG_PATH = "data_collector/data_source/scraper/config"
@@ -31,9 +33,13 @@ class DataSource(ABC):
     def _set_url(self, params: Dict) -> None:
         self.url = self.config.base_url.format(**params)
 
-    @abstractmethod
-    def _fetch(self) -> str:
-        raise NotImplementedError()
+    def _fetch(self, params: Dict) -> str:
+        self._set_url(params=params)
+
+        # TODO: error handling
+        resp = requests.get(url=self.url)
+
+        return resp.text
 
     @abstractmethod
     def _parse(self) -> object:
