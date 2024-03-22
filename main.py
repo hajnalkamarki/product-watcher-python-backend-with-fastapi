@@ -3,7 +3,6 @@ from fastapi import FastAPI
 
 from data_collector.data_source.database import engine, models
 
-
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()

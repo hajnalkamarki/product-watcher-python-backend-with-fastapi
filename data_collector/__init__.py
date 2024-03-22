@@ -1,9 +1,9 @@
 from typing import Sequence
 
 from data_collector.data_source.scraper import DataSource, DataSourceType
-from data_collector.data_source.scraper.shein import SheinDataSource
+from data_collector.data_source.scraper.book_store import BookStoreDataSource
 
-DATA_SOURCE_CLASSES: Sequence[DataSource] = (SheinDataSource,)
+DATA_SOURCE_CLASSES: Sequence[DataSource] = (BookStoreDataSource,)
 
 
 def get_data_source(
