@@ -1,3 +1,3 @@
 {
-  "base_url": "https://books.toscrape.com/catalogue/category/books_1/{search_expr}"
+  "base_url": "https://books.toscrape.com/catalogue/category/books_1/page-{search_expr}.html"
 }

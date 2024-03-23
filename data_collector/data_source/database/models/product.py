@@ -9,9 +9,9 @@ class Product(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, index=True)
-    price = Column(Integer)
+    price = Column(String)
     currency = Column(String)
-    data_source_id = Column(Integer, ForeignKey("data_source.id"))
+    data_source_id = Column(String, ForeignKey("data_source.id"))
 
     data_sources = relationship(
         "DataSource",

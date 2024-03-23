@@ -2,9 +2,10 @@ import json
 import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Dict, List
+from types import MappingProxyType
+from typing import Dict, List, Type
 
-import requests
+from data_collector.data_source.scraper.parser import Parser
 
 from ..common.data_source_types import DataSourceType
 
@@ -23,27 +24,29 @@ class DataSourceConfig:
 
 
 class DataSource(ABC):
-    def __init__(self) -> None:
+    def __init__(self, first_only: bool = False) -> None:
+        self.data = ""
+        self.results = list()
+        self.type = self.get_data_source_type()
+        self.first_only = first_only
         self.config = DataSourceConfig(
             **DataSourceConfig.get_config(
-                ds_type=self.get_data_source_type(),
+                ds_type=self.type,
             )
         )
 
     def _set_url(self, params: Dict) -> None:
         self.url = self.config.base_url.format(**params)
 
-    def _fetch(self, params: Dict) -> str:
+    def _fetch(self, params: Dict) -> None:
         self._set_url(params=params)
 
-        # TODO: error handling
-        resp = requests.get(url=self.url)
-
-        return resp.text
-
-    @abstractmethod
-    def _parse(self) -> object:
-        raise NotImplementedError()
+    def _parse(self, **kwargs) -> None:
+        self.results += kwargs["parser_cls"](
+            html_content=self.data,
+            ds_type=self.type,
+            first_only=self.first_only,
+        ).parse()
 
     @staticmethod
     @abstractmethod
@@ -51,5 +54,12 @@ class DataSource(ABC):
         raise NotImplementedError()
 
     @abstractmethod
-    def get_data(self) -> List[object]:
+    def get_number_of_pages(self) -> str:
+        raise NotImplementedError()
+
+    @abstractmethod
+    def get_data(
+        self,
+        params: Dict = MappingProxyType({}),
+    ) -> List[object]:
         raise NotImplementedError()

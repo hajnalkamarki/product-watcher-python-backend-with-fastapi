@@ -6,8 +6,7 @@ class ProductBase(BaseModel):
 
 
 class Product(ProductBase):
-    id: int
-    price: int
+    price: str
     currency: str
     data_source_id: int
 

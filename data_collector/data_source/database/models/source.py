@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 from . import Base
@@ -7,8 +7,7 @@ from . import Base
 class DataSource(Base):
     __tablename__ = "data_source"
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String, index=True)
+    id = Column(String, primary_key=True, index=True)
 
     product = relationship(
         "Product",
