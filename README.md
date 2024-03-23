@@ -22,9 +22,13 @@ the implementation also uses Pydantic before executing any of the CRUD operation
 SQLAlchemy it is a widely used SQL toolkit and ORM that gives a lot of flexibility of SQL. By 
 dockerizing the project it made it portable and easy to deploy to in-house or Cloud servers as well.
 
+<p align="center" style="padding-top: 5%; padding-bottom: 5%"> <img 
+src="https://github.com/hajnalkamarki/product-watcher-python-backend-with-fastapi/blob/master/docs/img/schema.png"
+/></p>
+
 ## Usage
 
-WIP
+WIP 
 
 ## Features 
 
