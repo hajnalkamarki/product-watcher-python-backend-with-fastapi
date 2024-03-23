@@ -3,9 +3,7 @@ import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from types import MappingProxyType
-from typing import Dict, List, Type
-
-from data_collector.data_source.scraper.parser import Parser
+from typing import Dict, List
 
 from ..common.data_source_types import DataSourceType
 

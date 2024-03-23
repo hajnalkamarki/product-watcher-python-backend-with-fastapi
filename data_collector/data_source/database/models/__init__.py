@@ -1,2 +1,1 @@
-from ...database import Base
-from . import product, source
+from ...database import Base  # noqa: F401
