@@ -1,0 +1,45 @@
+fail_fast: false
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: debug-statements
+      - id: check-ast
+      - id: check-json
+      - id: detect-private-key
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-case-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        exclude: ^.md
+  - repo: https://github.com/psf/black
+    rev: 23.12.1
+    hooks:
+      - id: black
+        name: black
+        args: [--config=pyproject.toml]
+        types: [python]
+        exclude: ^venv/ ^.git/ ^.vscode/ ^.DS_Store
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [--settings-path=pyproject.toml]
+        types: [python]
+        exclude: ^venv/ ^.git/ ^.vscode/ ^.DS_Store
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+        name: flake8
+        types: [python]
+        exclude: ^venv/ ^.git/ ^.vscode/ ^.DS_Store
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.4.0
+    hooks:
+      - id: pycln
+        args: [--config=pyproject.toml]
+        types: [python]
+        exclude: ^venv/ ^.git/ ^.vscode/ ^.DS_Store

@@ -4,8 +4,9 @@ import requests
 
 from data_collector.data_source.common.data_source_types import DataSourceType
 from data_collector.data_source.scraper import DataSource
-from data_collector.data_source.scraper.parser.book_store import \
-    BookStoreParser
+from data_collector.data_source.scraper.parser.book_store import (
+    BookStoreParser,
+)
 
 
 class BookStoreDataSource(DataSource):
