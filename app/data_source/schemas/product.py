@@ -8,7 +8,6 @@ class ProductBase(BaseModel):
 class Product(ProductBase):
     price: str
     currency: str
-    data_source_id: int
 
     class Config:
         orm_mode = True

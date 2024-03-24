@@ -6,7 +6,7 @@ class DataSourceBase(BaseModel):
 
 
 class DataSource(DataSourceBase):
-    id: int
+    id: str
 
     class Config:
         orm_mode = True

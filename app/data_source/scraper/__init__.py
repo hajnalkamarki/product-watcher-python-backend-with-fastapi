@@ -5,9 +5,11 @@ from dataclasses import dataclass
 from types import MappingProxyType
 from typing import Dict, List
 
+from app.data_source.schemas.product import Product
+
 from ..common.data_source_types import DataSourceType
 
-CONFIG_PATH = "data_collector/data_source/scraper/config"
+CONFIG_PATH = "app/data_source/scraper/config"
 
 
 @dataclass(kw_only=True)
@@ -59,5 +61,5 @@ class DataSource(ABC):
     def get_data(
         self,
         params: Dict = MappingProxyType({}),
-    ) -> List[object]:
+    ) -> List[Product]:
         raise NotImplementedError()

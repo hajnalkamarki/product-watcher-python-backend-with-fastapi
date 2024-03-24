@@ -1,13 +1,13 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, Integer, Sequence
 from sqlalchemy.orm import relationship
 
-from . import Base
+from app.data_source.database import Base
 
 
 class DataSource(Base):
     __tablename__ = "data_source"
 
-    id = Column(String, primary_key=True, index=True)
+    id = Column(Integer, Sequence("data_source_id_seq"), primary_key=True)
 
     product = relationship(
         "Product",

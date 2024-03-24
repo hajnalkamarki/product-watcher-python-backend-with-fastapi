@@ -2,11 +2,10 @@ from typing import Dict, List
 
 import requests
 
-from data_collector.data_source.common.data_source_types import DataSourceType
-from data_collector.data_source.scraper import DataSource
-from data_collector.data_source.scraper.parser.book_store import (
-    BookStoreParser,
-)
+from app.data_source.common.data_source_types import DataSourceType
+from app.data_source.schemas.product import Product
+from app.data_source.scraper import DataSource
+from app.data_source.scraper.parser.book_store import BookStoreParser
 
 
 class BookStoreDataSource(DataSource):
@@ -34,11 +33,9 @@ class BookStoreDataSource(DataSource):
     def get_data(
         self,
         params: Dict = None,
-    ) -> List[object]:
+    ) -> List[Product]:
         self.results = list()
         self._fetch(params={"search_expr": "1"})
         self._parse()
-
-        print(self.results)  # TODO: remove
 
         return self.results

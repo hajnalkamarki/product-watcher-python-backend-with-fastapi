@@ -1,8 +1,8 @@
 from typing import List
 
-from data_collector.data_source.common.data_source_types import DataSourceType
-from data_collector.data_source.schemas.product import Product
-from data_collector.data_source.scraper.parser import Parser
+from app.data_source.common.data_source_types import DataSourceType
+from app.data_source.schemas.product import Product
+from app.data_source.scraper.parser import Parser
 
 
 class BookStoreParser(Parser):
@@ -39,7 +39,6 @@ class BookStoreParser(Parser):
             name=product.find("h3").text,
             price=full_price.replace(currency, ""),
             currency=currency,
-            data_source_id=self.type,
         )
 
     @classmethod
