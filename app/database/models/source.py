@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, Sequence
 from sqlalchemy.orm import relationship
 
-from app.data_source.database import Base
+from app.database import Base
 
 
 class DataSource(Base):

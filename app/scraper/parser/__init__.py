@@ -4,8 +4,8 @@ from typing import List
 
 from bs4 import BeautifulSoup
 
-from app.data_source.common.data_source_types import DataSourceType
-from app.data_source.schemas.product import Product
+from app.common.data_source_types import DataSourceType
+from app.schemas.product import Product
 
 
 class Parser(ABC):

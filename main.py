@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.data_source.database import engine, models
+from app.database import engine, models
 
 models.Base.metadata.create_all(bind=engine)
 

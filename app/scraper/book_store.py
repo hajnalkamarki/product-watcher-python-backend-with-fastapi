@@ -2,10 +2,10 @@ from typing import Dict, List
 
 import requests
 
-from app.data_source.common.data_source_types import DataSourceType
-from app.data_source.schemas.product import Product
-from app.data_source.scraper import DataSource
-from app.data_source.scraper.parser.book_store import BookStoreParser
+from app.common.data_source_types import DataSourceType
+from app.schemas.product import Product
+from app.scraper import DataSource
+from app.scraper.parser.book_store import BookStoreParser
 
 
 class BookStoreDataSource(DataSource):

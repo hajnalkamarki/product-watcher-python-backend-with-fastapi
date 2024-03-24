@@ -1,8 +1,8 @@
 from typing import List
 
-from app.data_source.common.data_source_types import DataSourceType
-from app.data_source.schemas.product import Product
-from app.data_source.scraper.parser import Parser
+from app.common.data_source_types import DataSourceType
+from app.schemas.product import Product
+from app.scraper.parser import Parser
 
 
 class BookStoreParser(Parser):

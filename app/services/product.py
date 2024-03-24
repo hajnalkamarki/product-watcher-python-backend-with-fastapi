@@ -1,7 +1,7 @@
-from app import get_data_source
-from app.data_source.common.data_source_types import DataSourceType
-from app.data_source.database import LocalSession
-from app.data_source.database.models.product import Product
+from app.database import LocalSession
+from app.database.models.product import Product
+from app.scraper import DataSourceType
+from app.services.scraper import get_data_source
 
 
 def add_product(
