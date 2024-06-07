@@ -3,4 +3,4 @@ fastapi>=0.109.2
 beautifulsoup4>=4.12.3
 requests>=2.31.0
 SQLAlchemy>=2.0.27
-pydantic>=2.6.1P
+pydantic>=2.7.3

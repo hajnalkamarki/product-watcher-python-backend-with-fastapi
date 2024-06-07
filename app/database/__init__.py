@@ -2,6 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+CONFIG_PATH = "app/database/config"
+
+
 engine = create_engine(
     "sqlite:///./sql_app.db",
     connect_args={
@@ -17,11 +20,3 @@ LocalSession = sessionmaker(
 
 Base = declarative_base()
 Base.metadata.create_all(bind=engine)
-
-
-def get_db_session():
-    db = LocalSession()
-    try:
-        yield db
-    finally:
-        db.close()
