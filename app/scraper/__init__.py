@@ -2,8 +2,7 @@ import json
 import os
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from types import MappingProxyType
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 from app.schemas.product import Product
 
@@ -25,10 +24,10 @@ class DataSourceConfig:
 
 class DataSource(ABC):
     def __init__(self, first_only: bool = False) -> None:
-        self.data = ""
-        self.results = list()
-        self.type = self.get_data_source_type()
-        self.first_only = first_only
+        self.data: str = ""
+        self.results: List = list()
+        self.type: DataSourceType = self.get_data_source_type()
+        self.first_only: bool = first_only
         self.config = DataSourceConfig(
             **DataSourceConfig.get_config(
                 ds_type=self.type,
@@ -60,6 +59,6 @@ class DataSource(ABC):
     @abstractmethod
     def get_data(
         self,
-        params: Dict = MappingProxyType({}),
+        params: Optional[Dict] = None,
     ) -> List[Product]:
         raise NotImplementedError()

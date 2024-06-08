@@ -23,8 +23,8 @@ class BookStoreDataSource(DataSource):
     def _parse(self, **kwargs) -> None:
         super()._parse(parser_cls=BookStoreParser)
 
-    @classmethod
-    def get_data_source_type(cls) -> DataSourceType:
+    @staticmethod
+    def get_data_source_type() -> DataSourceType:
         return DataSourceType.BOOK_STORE
 
     def get_number_of_pages(self) -> str:

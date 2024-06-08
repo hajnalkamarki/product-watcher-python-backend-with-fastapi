@@ -1,7 +1,6 @@
 # import os
 
 import uvicorn
-from common.config_parser import ConfigParser
 from fastapi import FastAPI, Request
 from schemas.config import AppConfig
 
@@ -10,10 +9,9 @@ ENV_APP_CFG_PATH = "app/config/"  # os.getenv("APP_CFG_PATH")
 
 
 app = FastAPI()
-cfg: AppConfig = ConfigParser.load_app_config(
-    path=ENV_APP_CFG_PATH,
-    env=ENV_ENVIRONMENT,
-)
+cfg: AppConfig = AppConfig(env=ENV_ENVIRONMENT, config_path=ENV_APP_CFG_PATH)
+
+print(cfg)
 
 
 @app.get("/")
