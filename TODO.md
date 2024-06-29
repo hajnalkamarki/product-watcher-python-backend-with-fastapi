@@ -1,4 +1,4 @@
-- [x] Project skeleton 
+- [x] Project skeleton
 - [x] Base models
 - [] Create ORM CRUD methods and matching endpoints
 - [] OpenAPI documentation
