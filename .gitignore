@@ -3,4 +3,5 @@ venv
 Pipfile*
 *.txt
 *.db
+*-lock.json
 test*
