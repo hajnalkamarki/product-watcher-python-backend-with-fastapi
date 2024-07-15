@@ -13,3 +13,8 @@ ensure_newline_before_comments = true
 
 [tool.black]
 line-length = 120
+
+[tool.flake8]
+# max-line-length = 120  <- does nothing
+ignore = "E501"
+exclude = ["^venv/", "^.git/", "^.vscode/", "^.DS_Store"]

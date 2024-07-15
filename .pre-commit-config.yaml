@@ -30,12 +30,12 @@ repos:
         types: [python]
         exclude: ^venv/ ^.git/ ^.vscode/ ^.DS_Store
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.0.0
+    rev: 7.1.0
     hooks:
       - id: flake8
         name: flake8
+        args: [--config=pyproject.toml, "--max-line-length=120"]
         types: [python]
-        exclude: ^venv/ ^.git/ ^.vscode/ ^.DS_Store
   - repo: https://github.com/hadialqattan/pycln
     rev: v2.4.0
     hooks:
