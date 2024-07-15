@@ -5,3 +5,4 @@ Pipfile*
 *.db
 *-lock.json
 test*
+*.pyc
